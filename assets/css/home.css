@@ -1,0 +1,576 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+html,
+body {
+  height: 100%;
+  background-color: #008fef;
+  background: -webkit-linear-gradient(top left, #008fef 0%, #508ffb 100%);
+  background: linear-gradient(to bottom right, #008fef 0%, #508ffb 100%);
+  font-family: -webkit-pictographLora,'Times New Roman',serif;
+  color: #fff;
+  text-align: center;
+  max-height: 100%;
+  text-shadow: 0px 0px 0px #fafafa;
+
+}
+
+
+input{
+  font-weight: bold;
+}
+
+.title{
+  margin: 0;
+  font: 1.6em 'Pacifico', cursive !important;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #888;
+  display: block;
+}
+
+.title-brand{
+  display: none;
+  margin: 0;
+  font: 2em 'Pacifico', cursive !important;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #888;
+}
+
+.message-success{
+  background-color: #4caf50;
+  color : #FFFFFF;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.info-color{
+  color: #03a9f4 !important;
+}
+
+.danger-color{
+  color:#f44336 !important;
+}
+
+.warning-color{
+  color:#ff5722 !important;
+}
+
+.success-color{
+  color:#4caf50 !important;
+}
+
+.black{
+  background-color: #080808 !important;
+}
+
+.jumbotron{
+  background: #ffffff !important;
+}
+
+.form-register{
+  padding: 20px;
+  border: 1px solid #ede7f6;
+  margin: 10px;
+}
+
+.box-shadow3{
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.box-shadow2{
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19) !important;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+#btn-new-account{
+  font-weight: bold;
+  font-size: 18px;
+  padding: 20px;
+}
+
+#btn-facebook{
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 20px;
+  width: 380.125px;
+}
+
+#btn-signup{
+  font-size: 18px;
+  padding: 20px;
+}
+
+#btn-signin{
+  font-size: 18px;
+  padding: 20px;
+}
+
+.facebook-color{
+  background-color: #5b74a8 !important;
+}
+
+#navbar-top{
+  background-color: #24a1f4 !important;
+  margin-top: 50px;
+}
+
+.box-search{
+  padding: 25px;
+  background-color: #24a1f4 !important;
+}
+
+.account-container{
+  margin-top: 100px;
+}
+
+.account-login-container{
+  margin-top: 50px;
+}
+
+.expired-container{
+  margin: 20px;
+}
+
+.clock-container{
+  margin: 30px;
+}
+
+.bs-detail{
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+}
+
+a.back-to-top {
+  display: none;
+  width: 60px;
+  height: 60px;
+  text-indent: -9999px;
+  position: fixed;
+  z-index: 999;
+  right: 80px;
+  bottom: 60px;
+  background: #27AE61 url("../images/up-arrow.png") no-repeat center 43%;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+
+#fade-wrapper {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.delay{
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.transparent{
+  color: inherit !important;
+  background-color: rgba(255,255,255,.1) !important;
+}
+
+.register-container{
+  margin: 0px !important;
+  margin-top: 20px;
+  padding: 50px;
+}
+
+.register-container #contact{
+  padding: 20px;
+}
+
+#contact label{
+  color: #FFFFFF !important;
+}
+
+.contact-container{
+  margin: 0px !important;
+  margin-top: 20px;
+  padding: 50px;
+}
+
+.contact-container #register{
+  padding: 20px;
+}
+
+#register .col-lg-5{
+  margin-left: 50px;
+}
+
+#register label{
+  color: #FFFFFF !important;
+}
+
+.access-container{
+  margin: 0 auto; !important;
+  margin-top: 20px;
+  padding: 50px;
+  width: 40%;
+}
+
+.access-container #access{
+  padding: 20px;
+}
+
+#access label{
+  color: #FFFFFF !important;
+}
+
+.error-container {
+  margin: 0 auto;
+  margin-top: 150px;
+  max-width: 500px;
+  _width: 500px;
+  padding: 30px 20px 50px;
+  color: #ffffff;
+  background-color: rgba(255,255,255,.1) !important;
+}
+
+#btn-send{
+  font-size: 18px;
+  padding: 20px;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p{
+  padding: 10px;
+}
+
+.tables thead tr th{
+  text-align: center;
+}
+
+input{
+  color: #FFFFFF !important;
+}
+
+textarea{
+  color: #FFFFFF !important;
+}
+
+@media (max-width: 360px) {
+  .account-container{
+    margin-top: 30px;
+  }
+
+  .clock-container{
+    margin: 20px;
+  }
+
+  #btn-new-account{
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .title{
+    font-size: 3em !important;
+    display: none;
+  }
+
+  #btn-send{
+    font-size: 16px;
+    padding: 18px;
+  }
+
+  #btn-signin{
+    font-size: 16px;
+    padding: 18px;
+  }
+
+  #btn-signup{
+    font-size: 16px;
+    padding: 18px;
+  }
+
+  #btn-facebook{
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    width: 284.563px;
+  }
+
+  .error-container {
+    margin-top: 20px;
+  }
+
+  .account-login-container{
+    margin-top: 20px;
+  }
+
+  #register .col-lg-5 {
+    margin-left: 0px !important;
+    width: 100%;
+  }
+
+  .access-container{
+    margin: 0 auto; !important;
+    margin-top: 15px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .contact-container{
+    margin: 0px !important;
+    margin-top: 15px;
+    padding: 5px;
+  }
+
+  .register-container{
+    margin: 0px !important;
+    margin-top: 15px;
+    padding: 5px;
+  }
+
+  .footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .title-brand{
+    display: block;
+  }
+
+}
+
+::-webkit-input-placeholder {
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+:-ms-input-placeholder {
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.search-btn{
+  border-radius: 7px 0px 0px 7px !important;
+}
+
+#filtros a,#filtros button{
+  color: #444444;
+  background-color: white !important;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+#darthgray{
+  color: #444 !important;
+}
+
+.radio label .circle {
+  border: 2px solid #fafafa;
+}
+
+.settings-btn{
+  border-radius: 0px 7px 7px 0px !important;
+}
+
+#options{
+  position: absolute;
+  background-color: #074615;
+  z-index: 9999;
+  right: -1000px;
+}
+
+#options .panel-heading{
+  background-color: #074615 !important;
+  color: #fafafa;
+  border-bottom:1px solid #777;
+}
+
+#options .panel-body{
+  color: #fafafa;
+}
+
+hr{
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+
+#map{
+  height: 560px !important;
+  opacity: 0;
+}
+
+.tables{
+  background-color: #189ef2;
+  border-color: #fafafa;
+  color: #fff;
+}
+
+.tables .table{
+  border-color: #fafafa !important;
+}
+
+.tables tr td{
+  font-size: 15px !important;
+}
+
+.tables tr:hover{
+  background: #008fef !important;
+}
+
+.bs-info {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+  -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+}
+/* Echo out a label for the example */
+.bs-info:after {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ngdialog-close{
+  top:15px !important;
+  right:15px !important;
+}
+
+.bs-info-padded-bottom {
+  padding-bottom: 24px;
+}
+
+/* Tweak display of the code snippets when following an example */
+.bs-info + .highlight,
+.bs-info + .zero-clipboard + .highlight {
+  margin: -15px -15px 15px;
+  border-width: 0 0 1px;
+  border-radius: 0;
+}
+
+/*
+ * Examples
+ *
+ * Linked docs examples.
+ */
+
+.bs-infos .thumbnail {
+  margin-bottom: 10px;
+}
+.bs-infos h4 {
+  margin-bottom: 5px;
+}
+
+.media-body, .media-left, .media-right {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.media-left, .media>.pull-left {
+  padding-right: 10px;
+}
+
+.media-body, .media-left, .media-right {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.media, .media-body {
+  overflow: hidden;
+  zoom: 1;
+  word-wrap:break-word;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+  max-width: 100%;
+  width: 550px;
+}
+
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  color: #444 !important;
+}
+
+.media-body span{
+  padding-left: 10px;
+  color: #444 !important;
+}
+
+.details{
+  color: #fafafa !important;
+}
+.details:hover{
+  text-decoration: none !important;
+}
+
+.details .fa{
+  color: #fafafa !important;
+}
+
+@media (max-width: 480px) {
+  .bs-infos {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+  .bs-infos > [class^="col-"] {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+/* Make the examples and snippets not full-width */
+@media (min-width: 768px) {
+  .bs-info {
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .bs-info + .highlight,
+  .bs-info + .zero-clipboard + .highlight {
+    margin-top: -16px;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .bs-info-standalone {
+    border-radius: 4px;
+  }
+}

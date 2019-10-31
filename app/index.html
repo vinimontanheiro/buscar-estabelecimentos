@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="buscar-estabelecimentos">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Buscar estabelecimentos</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css"
+          rel="stylesheet">
+    <link href="../assets/bower_components/angularjs-toaster/toaster.min.css" rel="stylesheet">
+    <link href="../assets/bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+    <!--<link href="../assets/bower_components/nouislider/distribute/nouislider.min.css" rel="stylesheet">-->
+
+    <!-- FONTS -->
+    <link rel="stylesheet" href="../assets/bower_components/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../assets/bower_components/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="../assets/bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/home.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.min.js"></script>
+    <script src="../assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-controller="HomeController" ng-init="iniciar()" ng-keypress="enterPressed($event)">
+<span us-spinner spinner-key="spinner-1"></span>
+<div id="fade-wrapper"></div>
+<div class="container">
+    <div class="row">
+    <!-- Static navbar -->
+    <nav class="navbar" id="navbar-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="title-brand">Buscar informações de estabelecimentos</a>
+                <p><h5 class="title">Buscar informações de estabelecimentos</h5></p>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav navbar-right menu">
+                    <li class="active delay"><a href="/">PÁGINA INICIAL</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+    </div>
+</div>
+
+<div class="panel panel-default box-shadow3" id="options">
+    <div class="panel-heading"><a href="javascript:void(0)" class="pull-right close-options close" ng-click="onOptions()"><i
+            class="fa fa-close"></i></a><h4>Buscar por </h4></div>
+    <div class="panel-body">
+        <div class="col-md-10" style="text-align: left;">
+            <div class="radio radio-primary">
+                <label>
+                    <input type="radio" name="local" id="optionsRadios2" ng-model="local.tipo" value="estabelecimento"
+                           checked="true"><span
+                        class="circle"></span><span class="check"></span>
+                    Estabelecimento
+                </label>
+            </div>
+            <div class="radio radio-primary">
+                <label>
+                    <input type="radio" name="local" id="optionsRadios3" ng-model="local.tipo" value="endereco"><span
+                        class="circle"></span><span class="check"></span>
+                    Endereço / Local
+                </label>
+            </div>
+            <hr>
+            <p><h4>Região</h4></p>
+
+            <div class="radio radio-primary">
+                <label>
+                    <input type="radio" name="regiao" id="todas" ng-model="local.regiao" value="todas"><span
+                        class="circle"></span><span class="check"></span>
+                    Todas
+                </label>
+            </div>
+
+            <div class="radio radio-primary">
+                <label>
+                    <input type="radio" name="regiao" id="redondezas" ng-model="local.regiao" value="atual"><span
+                        class="circle"></span><span class="check"></span>
+                    Redondezas
+                </label>
+            </div>
+
+            <div class="radio radio-primary">
+                <label>
+                    <input type="radio" name="regiao" id="optionsRadios9" ng-model="local.regiao" value="cidade"><span
+                        class="circle"></span><span class="check"></span>
+                    Cidade
+                </label>
+            </div>
+
+            <div class="radio radio-primary">
+                <label>
+                    <input type="radio" name="regiao" id="optionsRadios8" ng-model="local.regiao" value="coords"><span
+                        class="circle"></span><span class="check"></span>
+                    Coordenadas
+                </label>
+            </div>
+
+            <div class="form-group" ng-hide="!local.isCidade">
+                <label for="inputCidade">Cidade</label>
+                <input type="text" class="form-control" id="inputCidade" placeholder="Nome da cidade" style="width: 185px;"
+                       ng-model="local.cidade">
+            </div>
+
+            <div class="form-group" ng-hide="!local.isCoords">
+                <label for="inputLatitude">Latitude</label>
+                <input type="text" class="form-control" id="inputLatitude" placeholder="Latitude" style="width: 185px;"
+                       ng-model="local.coords.latitude">
+            </div>
+
+            <div class="form-group" ng-hide="!local.isCoords">
+                <label for="inputLongitude">Longitude</label>
+                <input type="text" class="form-control" id="inputLongitude" placeholder="Longitude" style="width: 185px;"
+                       ng-model="local.coords.longitude">
+            </div>
+
+            <div id="slider1" style="width: 185px;"
+                 class="slider shor noUi-target noUi-ltr noUi-horizontal noUi-connect">
+                <div class="noUi-base">
+                    <div class="noUi-origin noUi-background">
+                        <div class="noUi-handle noUi-handle-lower"
+                             style="width: 0px !important;height: 0px !important;border:none !important;"></div>
+                    </div>
+                </div>
+            </div>
+            <span class="example-val" style="width: 185px;font-size: 12px;">Raio: <i id="slider1-span"
+                                                                                     style="font-size: 13px;"></i> M</span>
+
+        </div>
+
+    </div>
+    <!--<div class="panel-footer">Panel footer</div>-->
+</div>
+<div class="container">
+    <toaster-container class="pull-right"></toaster-container>
+    <div class="row">
+        <div class="col-lg-14 box-search">
+            <div class="input-group" id="filtros">
+                <input type="text" id="termos" name="termos" class="form-control search" ng-model="local.termos"
+                       placeholder="Informe o termo ou palavra-chave" ng-keypress="enterPressed($event)"/>
+      <span class="input-group-btn">
+            <button class="btn btn-raised search-btn" ng-click="onSearch()" type="button"><i
+                    class="fa fa-search darthgray" aria-hidden="true"></i></button>
+
+             <button class="btn btn-raised" type="button" ng-click="OnMap()"><i
+                     class="fa fa-map darthgray" aria-hidden="true"></i></button>
+
+              <button class="btn btn-raised settings-btn" type="button" ng-click="onOptions()"><i
+                      class="fa fa-cogs darthgray" aria-hidden="true"></i></button>
+
+      </span>
+
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+    <div class="row" ng-hide="isMapOpen">
+        <div class="col-xs-12" style="background: #24a1f4 !important;">
+            <br>
+            <div class="table-responsive tables">
+                <table class="table table-bordered table-hover" ng-hide="local.lista.enderecos.length <= 0"
+                       ng-show="local.lista.enderecos.length >= 1">
+                    <thead>
+                    <tr>
+                        <th>Endereço completo</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="end in local.lista.enderecos track by $index" ng-class-odd="'alt'">
+                        <td>{{end.formatted_address ? end.formatted_address : 'Info. Indisponível'}}</td>
+                        <td>{{end.geometry.location.lat ? end.geometry.location.lat : 'Info. Indisponível'}}
+                        </td>
+                        <td>{{end.geometry.location.lng ? end.geometry.location.lng : 'Info. Indisponível'}}</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div><!--end of .table-responsive-->
+
+            <div class="table-responsive tables">
+                <table class="table table-bordered table-hover" ng-hide="local.lista.estabelecimentos.length <= 0" ng-show="local.lista.estabelecimentos.length >= 1">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Endereço completo</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Status</th>
+                        <th>#</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="est in local.lista.estabelecimentos track by $index" ng-class-odd="'alt'">
+                        <td>{{est.name ? est.name : 'Info. Indisponível'}}</td>
+                        <td>{{est.address ? est.address : 'Info. Indisponível'}}</td>
+                        <td>{{est.lat ? est.lat : 'Info. Indisponível'}}
+                        <td>{{est.lng ? est.lng : 'Info. Indisponível'}}
+                        <td>{{est.openNow != '' ? est.openNow ? 'Aberto' : 'Fechado' : 'Info. Indisponível'}}
+                        <td><a class="details" href="javascript:void(0)" ng-click="getDetalhesEstabelecimentos(est.id,visualizarDetalheEstabelecimento)"><i class="fa fa-2x fa-search"></i></a></td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div><!--end of .table-responsive-->
+        </div>
+    </div>
+
+</div>
+
+<div class="row" style="height: auto;">
+    <div id="map"></div>
+</div>
+
+<a href="#" class="back-to-top"><i class="fa fa-2x fa-arrow-up"></i></a>
+
+<!--<footer class="nav footer">-->
+    <!--<div class="container">-->
+       <!---->
+    <!--</div>-->
+<!--</footer>-->
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../assets/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../assets/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+<script src="../assets/bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../assets/bower_components/nouislider/distribute/nouislider.min.js"></script>
+<!--<script src="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="../assets/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="../assets/bower_components/jquery-validation/dist/additional-methods.min.js"></script>
+
+<script src="../assets/bower_components/angular/angular.min.js"></script>
+<script src="../assets/bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="../assets/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="../assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../assets/bower_components/angularjs-toaster/toaster.min.js"></script>
+<script src="../assets/bower_components/spin.js/spin.js"></script>
+<script src="../assets/bower_components/angular-spinner/angular-spinner.js"></script>
+<script src="../assets/bower_components/ng-dialog/js/ngDialog.min.js"></script>
+<script src="../assets/js/init.js"></script>
+
+<script src="../assets/js/fileSaver.js"></script>
+<script src="../assets/js/jsExportToExcel.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkns5Bc0DibPWAOgPMv6JEwzW4QV6pahg&libraries=placeses,places,weather,geometry,visualization"></script>
+<script src="app/services/appServices.js"></script>
+<script src="app/directives/formDirectives.js"></script>
+
+<script src="app/controllers/homeController.js"></script>
+
+<script src="app/app.js"></script>
+
+</body>
+</html>

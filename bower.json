@@ -1,0 +1,42 @@
+{
+  "name": "estabelecimentos",
+  "authors": [
+    "Vini <mrvini@live.com>"
+  ],
+  "description": "Expirou!!!",
+  "main": "index.html",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "keywords": [
+    "timer",
+    "reminder"
+  ],
+  "license": "MIT",
+  "homepage": "www.expirou.com.br",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.5.0",
+    "bootstrap": "~3.3.6",
+    "angularjs-toaster": "~0.4.15",
+    "jquery-maskmoney": "~3.0.2",
+    "angular-file-upload": "~2.2.0",
+    "bootstrap-material-design": "~0.5.7",
+    "jquery-validation": "~1.14.0",
+    "angular-ui-router": "^0.2.18",
+    "nouislider": "^8.5.1",
+    "angular": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angular-aria": "^1.6.1",
+    "angular-spinner": "^0.8.1",
+    "ng-dialog": "^0.6.6"
+  }
+}

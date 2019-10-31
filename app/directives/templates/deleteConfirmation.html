@@ -1,0 +1,12 @@
+<div class="deleteConfirmation">
+    <div ng-hide="isDeleting">
+        <button type="button" class="btn btn-danger btn-xs" ng-click="startDelete()"><i class="fa fa-trash-o"></i>
+            Deletar
+        </button>
+    </div>
+    <div ng-show="isDeleting">
+        <button type="button" class="btn btn-default btn-xs" ng-click="cancel()">Cancelar</button>
+        <button type="button" class="btn btn-danger btn-xs" ng-click="onConfirm()"><i class="fa fa-trash-o"></i>Confirmar
+        </button>
+    </div>
+</div>
